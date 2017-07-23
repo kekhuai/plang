@@ -55,7 +55,6 @@ class TestPlangMethod(unittest.TestCase):
     def test_negative_number(self):
         self.assertEqual(plang.convert_number_to_thai_word(-1), 'ลบหนึ่ง')
 
-    # @unittest.expectedFailure
     def test_more_than_million(self):
         self.assertEqual(
             plang.convert_number_to_thai_word(10000000),
