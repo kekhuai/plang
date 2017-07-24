@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from distutils.core import setup
+from setuptools import setup
 
 setup(
     name='plang',
@@ -9,5 +9,5 @@ setup(
     author='kekhuay',
     author_email='nulladivides@protonmail.com',
     license='LICENSE',
-    packages='.',
+    packages=['plang'],
     url='https://github.com/kekhuay/plang')
