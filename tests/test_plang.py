@@ -1,6 +1,6 @@
 import unittest
 
-import plang
+from plang import plang
 
 
 class TestPlangMethod(unittest.TestCase):

@@ -3,3 +3,4 @@ dist
 **/*.orig
 plang.egg-info
 MANIFEST
+.vscode/
