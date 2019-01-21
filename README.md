@@ -6,7 +6,7 @@ This is a simple python package that provide a function to convert number to Tha
 
 ```
 from plang import plang
-plang.convert_number_to_thai_word(22)
+plang.to_thai(22)
 ```
 Output
 ```

@@ -1,7 +1,7 @@
 import math
 
 
-def convert_number_to_thai_word(number):
+def to_thai(number):
     __SMALL = [
         'ศูนย์', 'หนึ่ง', 'สอง', 'สาม', 'สี่',
         'ห้า', 'หก', 'เจ็ด', 'แปด', 'เก้า'
@@ -11,10 +11,8 @@ def convert_number_to_thai_word(number):
         left = (number // 1000000)
         number = number - (left * 1000000)
         if number == 0:
-            return convert_number_to_thai_word(left) + 'ล้าน'
-        return convert_number_to_thai_word(left)\
-            + 'ล้าน'\
-            + convert_number_to_thai_word(number)
+            return to_thai(left) + 'ล้าน'
+        return to_thai(left) + 'ล้าน' + to_thai(number)
     else:
         thai_word = ''
         if __is_negative(number):
