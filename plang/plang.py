@@ -7,23 +7,24 @@ def to_thai(number):
         'ห้า', 'หก', 'เจ็ด', 'แปด', 'เก้า'
     ]
     __DENOM = {2: 'สิบ', 3: 'ร้อย', 4: 'พัน', 5: 'หมื่น', 6: 'แสน', 7: 'ล้าน'}
-    if __number_size(number) > 7:
-        left = (number // 1000000)
-        number = number - (left * 1000000)
-        if number == 0:
+    n = number
+    if __number_size(n) > 7:
+        left = (n // 1000000)
+        n = n - (left * 1000000)
+        if n == 0:
             return to_thai(left) + 'ล้าน'
-        return to_thai(left) + 'ล้าน' + to_thai(number)
+        return to_thai(left) + 'ล้าน' + to_thai(n)
     else:
         thai_word = ''
-        if __is_negative(number):
+        if __is_negative(n):
             thai_word += 'ลบ'
-            number = abs(number)
-        if number < 10:
-            return thai_word + __SMALL[number]
+            n = abs(n)
+        if n < 10:
+            return thai_word + __SMALL[n]
         else:
-            while __number_size(number) > 0:
-                left_most_digit = __left_most_digit(number)
-                number_size = __number_size(number)
+            while __number_size(n) > 0:
+                left_most_digit = __left_most_digit(n)
+                number_size = __number_size(n)
                 if number_size == 2:
                     if left_most_digit != 1:
                         if left_most_digit == 2:
@@ -32,11 +33,11 @@ def to_thai(number):
                             thai_word += __SMALL[left_most_digit]
                     thai_word += __DENOM[number_size]
                 elif number_size == 1:
-                    thai_word += 'เอ็ด' if number == 1 else __SMALL[number]
+                    thai_word += 'เอ็ด' if n == 1 else __SMALL[n]
                 else:
-                    thai_word += __SMALL[__left_most_digit(number)]\
-                        + __DENOM[__number_size(number)]
-                number = __remove_left_most_digit(number)
+                    thai_word += __SMALL[__left_most_digit(n)]\
+                        + __DENOM[__number_size(n)]
+                n = __remove_left_most_digit(n)
             return thai_word
 
 
